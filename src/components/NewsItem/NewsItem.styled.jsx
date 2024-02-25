@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 import { theme } from '../../utils/theme';
-const { fonts, fontSizes, colors } = theme;
+const { fonts, fontSizes, colors, radii } = theme;
 
 export const NewsItem = styled.div`
   width: 288px;
@@ -109,4 +109,38 @@ export const CategoryOutput = styled.div`
 
   border-radius: 0px 16px 16px 0px;
   background: var(--blue-light, ${colors.blue_light});
+`;
+
+export const AddButton = styled.button`
+  position: absolute;
+  top: 16px;
+  right: 12px;
+  color: darkblue;
+  width: 40px;
+  height: 40px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border: none;
+  border-radius: ${radii.round};
+  background: ${colors.blue_light};
+  `;
+
+export const RemoveButton = styled.button`
+  position: absolute;
+  top: 64px;
+  right: 12px;
+  color: darkblue;
+  width: 40px;
+  height: 40px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border: none;
+  border-radius: ${radii.round};
+  background: ${colors.blue_light};
 `;

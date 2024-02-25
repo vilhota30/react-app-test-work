@@ -10,14 +10,33 @@ import AuthorCategorie from "components/FilterCategories/AuthorCategorie";
 import { NewsListContainer, FilterFormButton, FilterForms, FilterModal, FilterCloseButton } from "components/NewsList/NewsList.styled";
 import icons from '../../images/icons/symbol-defs.svg';
 
+
  const NewsList = () => {
+
    const [filteredData, setFilteredData] = useState(dataNews);
    const [searchTerm, setSearchTerm] = useState('');
+   const [favoriteNews, setFavoriteNews] = useState([]);
+
    
    const [isByNewsOpen, setIsByNewsOpen] = useState(false);
    const [isByYearOpen, setIsByYearOpen] = useState(false);
    const [isByAuthorOpen, setIsByAuthorOpen] = useState(false);
    const [isFiltersOpen, setIsFiltersOpen] = useState(false);
+
+   const onAddToFavourite = (id) => {
+     const newsToAdd = dataNews.find(news => news.id === id);
+     console.log(newsToAdd);
+     if (newsToAdd && !favoriteNews.some(news => news.id === id)) {
+       setFavoriteNews([...favoriteNews, newsToAdd]);
+     }
+     console.log(favoriteNews);
+   };
+ 
+  const onDelete = (id) => {
+  const updatedFavoriteNews = favoriteNews.filter(news => news.id !== id);
+  setFavoriteNews(updatedFavoriteNews);
+  };
+
 
    const toggleNewsFilter = () => {
     if (isByNewsOpen) {
@@ -146,12 +165,27 @@ import icons from '../../images/icons/symbol-defs.svg';
        <NewsListContainer>
          {filteredData.map((filterData) => (
            <NewsListItem
+             onAddToFavourite={onAddToFavourite}
+             onDelete={onDelete}
              filterData={filterData}
              key={nanoid()}
-             id={filterData._id}
+             id={filterData.id}
            />
          ))}
        </NewsListContainer>
+       <div>
+        <h2 style={{display:'flex', justifyContent:'center', color:'white',}}>Favorite News</h2>
+        <NewsListContainer>
+        {favoriteNews.map(news => (
+          <NewsListItem 
+            key={news.id} 
+            filterData={news} 
+            onAddToFavourite={onAddToFavourite} 
+            onDelete={onDelete} 
+          />
+        ))}
+        </NewsListContainer>
+      </div>
        </div>
    );
 
