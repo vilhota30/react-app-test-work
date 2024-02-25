@@ -1,4 +1,4 @@
-import { HiddenRadio, StyledFilterOption } from './FilterGroupCategories.styled';
+import { HiddenRadio, StyledFilterOption } from 'components/NewsList/NewsList.styled';
 import icons from '../../images/icons/symbol-defs.svg';
 
 const FilterOption = ({ name, value, checked, children }) => {

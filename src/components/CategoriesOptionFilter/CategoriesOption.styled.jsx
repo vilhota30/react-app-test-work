@@ -10,6 +10,7 @@ export const OptionForm = styled.form`
   @media screen and (min-width: 767px){
   justify-content: center;
   align-items: center;
+  margin-top: 20px;
   }
 `;
 

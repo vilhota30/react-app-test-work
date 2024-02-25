@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import icons from '../../images/icons/symbol-defs.svg';
-import { FilterForm, FilterFormButton } from './FilterGroupCategories.styled';
+import { FilterForm, FilterFormButton } from 'components/NewsList/NewsList.styled';
 import FilterOption from './FilterOption';
 
 
@@ -14,8 +14,9 @@ const NewsCategorie = ({ onClick, onChange, initialValue }) => {
       const newNewsData = event.currentTarget.elements.newsOption.value;
       setNewsData(newNewsData);
       onChange(newNewsData);
+      console.log(newsData);
     };
-  
+
     const handleSubmit = (event) => {
       event.preventDefault();
       onClick();
@@ -31,15 +32,15 @@ const NewsCategorie = ({ onClick, onChange, initialValue }) => {
         </FilterFormButton>
         <FilterOption
           name="newsOption"
-          value="BBC"
-          checked={newsData === 'BBC'}
+          value="BBC News"
+          checked={newsData === 'BBC News'}
         >
           BBC News
         </FilterOption>
         <FilterOption
           name="newsOption"
-          value="New York Times"
-          checked={newsData === 'New York Times'}
+          value="The New York Times"
+          checked={newsData === 'The New York Times'}
         >
           The New York Times
         </FilterOption>

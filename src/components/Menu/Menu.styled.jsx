@@ -30,6 +30,13 @@ export const CloseBurger = styled.button`
       fill: #ffc107;
     }
   }
+
+  @media screen and (min-width: 768px) {
+    display: flex;
+    margin-left: auto;
+  }
+
+
 `;
 export const Top = styled.div`
   width: 100%;
@@ -48,6 +55,7 @@ export const MenuBackground = styled.div`
   z-index: 5;
   width: 100%;
   height: 100%;
+  color: darkblue;
   background-color: #fff;
   padding: 22px 20px;
   display: flex;

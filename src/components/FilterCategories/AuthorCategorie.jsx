@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import icons from '../../images/icons/symbol-defs.svg';
-import { FilterForm, FilterFormButton } from './FilterGroupCategories.styled';
+import { FilterForm, FilterFormButton } from 'components/NewsList/NewsList.styled';
 import FilterOption from './FilterOption';
 
 const AuthorCategorie = ({ onClick, onChange, initialValue }) => {
